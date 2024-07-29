@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <main class="main container">
+    <h1 class="main__logo">SPLI<span>TTER</span></h1>
+    <section class="calculator">
+      <!-- Calculator Form -->
+      <form class="calculator__form" id="form">
+        <div class="calculator__form-group">
+          <label for="input-bill">Bill</label>
+          <input type="number" id="input-bill" class="icon-euro" name="bill" placeholder="0" required>
+        </div>
+        <section>
+          <fieldset class="calculator__form-group">
+            <legend>Select Tip %</legend>
+            <div class="calculator__form-tip" id="input-tip">
+              <button type="button" data-tip="5" class="button--dark">5%</button>
+              <button type="button" data-tip="10" class="button--dark">10%</button>
+              <button type="button" data-tip="15" class="button--dark">15%</button>
+              <button type="button" data-tip="25" class="button--dark">25%</button>
+              <button type="button" data-tip="50" class="button--dark">50%</button>
+              <input type="number" data-tip="custom" placeholder="Custom" min="0" max="100" step="1">
+            </div>
+            <p class="message"></p>
+          </fieldset>
+        </section>
+        <div class="calculator__form-group">
+          <label for="input-people">Number of People</label>
+          <input type="number" id="input-people" class="icon-person" name="people" placeholder="0" min="1" required>
+          <p class="message"></p>
+        </div>
+      </form>
+      <!-- Calculator Output -->
+      <div class="calculator__output">
+        <div class="calculator__output-group">
+          <p class="calculator__output-text">
+            Tip Amount <span>/ person</span>
+          </p>
+          <p class="calculator__output-price" id="output-tip">0.00</p>
+        </div>
+        <div class="calculator__output-group">
+          <p class="calculator__output-text">
+            Total <span>/ person</span>
+          </p>
+          <p class="calculator__output-price" id="output-total">0.00</p>
+        </div>
+        <button type="button" class="button--light" id="button-reset">RESET</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>

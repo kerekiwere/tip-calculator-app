@@ -1,0 +1,217 @@
+@import url('reset.css');
+
+/* ========== VARIABLES ========== */
+:root {
+  /* Colors */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(189, 41%, 97%);
+  --clr-neutral-300: hsl(185, 41%, 84%);
+  --clr-neutral-400: hsl(184, 14%, 56%);
+  --clr-neutral-500: hsl(172, 67%, 45%);
+  --clr-neutral-600: hsl(186, 14%, 43%);
+  --clr-neutral-700: hsl(180, 25%, 32%);
+  --clr-neutral-800: hsl(183, 100%, 15%);
+  --clr-error-400: hsl(0, 71%, 70%);
+  /* Typography */
+  --ff-primary: "Space Mono", monospace;
+  --fs-400: 1rem;
+  --fs-500: 1.5rem;
+  --fs-600: 2rem;
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Typography */
+    --fs-600: 3rem;
+  }
+}
+
+/* ========== GLOBAL ========== */
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-neutral-300);
+  color: var(--clr-neutral-700);
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-500);
+  border: none;
+  border-radius: 0.25rem;
+}
+
+input {
+  background-color: var(--clr-neutral-200);
+  text-align: right;
+  color: var(--clr-neutral-800);
+}
+
+button {
+  cursor: pointer;
+}
+
+input:focus,
+input.active {
+  outline: 2px solid var(--clr-neutral-500);
+}
+
+fieldset {
+  border: none;
+}
+
+label,
+legend {
+  margin-bottom: 0.5rem;
+}
+
+/* ========== UTILITIES ========== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========== COMPONENTS ========== */
+.button--dark {
+  background-color: var(--clr-neutral-800);
+  color: var(--clr-neutral-100);
+}
+
+.button--light {
+  background-color: var(--clr-neutral-500);
+  color: var(--clr-neutral-800);
+}
+
+.button--dark.active,
+.button--dark:hover,
+.button--dark:focus,
+.button--light.active,
+.button--light:hover,
+.button--light:focus {
+  background-color: var(--clr-neutral-300);
+  color: var(--clr-neutral-800);
+  outline: none;
+}
+
+.icon-euro {
+  background-image: url("../images/icon-euro.svg");
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+}
+
+.icon-person {
+  background-image: url("../images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+}
+
+/* ========== MAIN ========== */
+.main__logo {
+  font-size: var(--fs-500);
+  letter-spacing: 0.75rem;
+  text-align: center;
+  padding-block: 2rem;
+}
+
+.main__logo>span {
+  display: block;
+}
+
+.calculator {
+  background-color: var(--clr-neutral-100);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.calculator__form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.calculator__form-group {
+  display: grid;
+}
+
+.calculator__form-group.error input {
+  outline: 2px solid var(--clr-error-400);
+  color: var(--clr-error-400);
+}
+
+.calculator__form-group .message {
+  color: var(--clr-error-400);
+  text-align: right;
+}
+
+.calculator__form-tip {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 0.5rem));
+  gap: 1rem;
+}
+
+.calculator__output {
+  background-color: var(--clr-neutral-800);
+  color: var(--clr-neutral-100);
+  padding: 2.5rem 1.5rem;
+  border-radius: inherit;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.calculator__output-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.calculator__output-text span {
+  display: block;
+  color: var(--clr-neutral-600);
+}
+
+.calculator__output-price {
+  font-size: var(--fs-600);
+  color: var(--clr-neutral-500);
+}
+
+.calculator__output-price::before {
+  content: "€";
+}
+
+@media (min-width: 768px) {
+  .calculator {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+
+  .calculator__form-tip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .calculator__output {
+    padding: 2.5rem;
+  }
+}
